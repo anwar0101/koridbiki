@@ -14,7 +14,7 @@
                 </div>
                 <div class="panel-body">
                   <div class="list-group">
-                    <a href="#" class="list-group-item"> Sell an item or service </a>
+                    <a href="{{ route('post.create') }}" class="list-group-item"> Sell an item or service </a>
                     <a href="#" class="list-group-item"> Offer a property for rent </a>
                     <a href="#" class="list-group-item"> Post a job vacancy </a>
                   </div>

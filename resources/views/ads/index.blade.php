@@ -154,52 +154,35 @@
 
         <div class="col-md-7 col-sm-12 col-xs-12">
           <p> Home <span class="fa fa-long-arrow-right"></span> All ads in Bangladesh</p>
-          <a href="#">
-            <div class="panel panel-default item-sty">
-              <div class="panel-body">
-                <div class="row media">
-                  <div class="col-md-3 col-sm-4">
-                    <div class="media-left">
-                      <img class="img-responsive" src="{{ asset('img/my.jpeg')}}" alt="Post image">
-                    </div>
-                  </div>
-                  <div class="col-md-7 col-sm-8">
-                    <div class="media-body">
-                      <p class="media-heading"> Apple iPhone 5S 32 GB Intact Original </p>
-                      <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> 25 minutes ago, <wbr> Sylhet,<wbr> Mobile Phone </p>
-                      <p> <b> Tk 12000 </b> </p>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="media-right">
-                      <p class="label label-success"> <i class="fa fa-shield"></i> TOP PAIND </p>
+          @forelse ($posts as $post)
+              <a href="{{ route('post.show', $post->id) }}">
+                <div class="panel panel-default item-sty">
+                  <div class="panel-body">
+                    <div class="row media">
+                      <div class="col-md-3 col-sm-4">
+                        <div class="media-left">
+                          <img class="img-responsive" src="{{ asset('img/my.jpeg')}}" alt="Post image">
+                        </div>
+                      </div>
+                      <div class="col-md-7 col-sm-8">
+                        <div class="media-body">
+                          <p class="media-heading"> {{ $post->title }} </p>
+                          <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> {{ $post->created_at->diffForHumans() }}, <wbr> {{ $post->place->name }},<wbr> {{ $post->sub_category->name }} </p>
+                          <p> <b> Tk {{ $post->price }} </b> </p>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="media-right">
+                          <p class="label label-success"> <i class="fa fa-shield"></i> TOP PAIND </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </a>
+              </a>
+          @empty
 
-          <a href="#">
-            <div class="panel panel-default item-sty">
-              <div class="panel-body">
-                <div class="row media">
-                  <div class="col-md-3 col-sm-4">
-                    <div class="media-left">
-                      <img class="img-responsive" src="{{ asset('img/my.jpeg')}}" alt="Post image">
-                    </div>
-                  </div>
-                  <div class="col-md-9 col-sm-8">
-                    <div class="media-body">
-                      <p class="media-heading"> Apple iPhone 5S 32 GB Intact Original </p>
-                      <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> 25 minutes ago, <wbr> Sylhet,<wbr> Mobile Phone </p>
-                      <p> <b> Tk 12000 </b> </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
+          @endforelse
         </div>
       </div>
     </div>

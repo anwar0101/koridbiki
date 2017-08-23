@@ -3,8 +3,8 @@
 @section('content')
   <div class="container">
     <div class="content-bg-color">
-      <h3> Mobile Net Booster-3G.(Net Upgrade) </h3>
-      <p> For sale by Nesar ahmed 19 Aug 2:24 pm, Jatrabari, Dhaka </p>
+      <h3> {{ $post->title }} </h3>
+      <p> For sale by {{ $post->user->name }} {{ $post->created_at->toDayDateTimeString() }}, {{ $post->place->name }}, Dhaka </p>
 
       <div class="row">
         <div class="col-md-8">
@@ -54,40 +54,14 @@
 
           <div class="row">
             <div class="col-md-8">
-              <p> <b class="style-for-money"> Tk 6000 </b>  </p> <hr>
+              <p> <b class="style-for-money"> Tk {{ $post->price }} </b>  </p> <hr>
               <p>
-                High gain, easy installation and operation.
-                Full-duplex, single-port design.
-                Use ALC technology, adjust extent automatically
-                LED Light Working & Signal Condition Indicators
-                Big linear power, control intermodulation & scatteration stably
-                Dependability stand by GB6993-86 standard
-                Compatibility of electromagnetism according with ETS300 609-4
-              </p>
-
-              <p>
-                High gain, easy installation and operation.
-                Full-duplex, single-port design.
-                Use ALC technology, adjust extent automatically
-                LED Light Working & Signal Condition Indicators
-                Big linear power, control intermodulation & scatteration stably
-                Dependability stand by GB6993-86 standard
-                Compatibility of electromagnetism according with ETS300 609-4
-              </p>
-
-              <p>
-                High gain, easy installation and operation.
-                Full-duplex, single-port design.
-                Use ALC technology, adjust extent automatically
-                LED Light Working & Signal Condition Indicators
-                Big linear power, control intermodulation & scatteration stably
-                Dependability stand by GB6993-86 standard
-                Compatibility of electromagnetism according with ETS300 609-4
+                {{ $post->description }}
               </p>
             </div>
             <div class="col-md-4">
               <ul class="list-group">
-                <li class="list-group-item"> <p> <b> Condition: </b> new </p> </li>
+                <li class="list-group-item"> <p> <b> Condition: </b> {{ $post->condition }} </p> </li>
                 <li class="list-group-item"> <p> <b> Brand: </b> Lava </p> </li>
                 <li class="list-group-item"> <p> <b> Model: </b> Atom x1 </p> </li>
                 <li class="list-group-item"> <p> <b> Features: </b> new </p> </li>
@@ -104,7 +78,7 @@
           <p> Contact now with seller </p>
           <ul class="list-group">
             <li class="list-group-item">
-              <b> <i class="fa fa-mobile-phone fa-fw fa-lg"></i> +8801745896582  </b>
+              <b> <i class="fa fa-mobile-phone fa-fw fa-lg"></i> {{ $post->contact }}  </b>
             </li>
           </ul>
           <p> Visit member's page </p>

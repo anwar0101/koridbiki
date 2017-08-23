@@ -4,41 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SubCategoryController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboard()
+    public function index()
     {
-        return view('users.dashboard');
-    }
-
-    public function membership()
-    {
-        return view('users.membership');
-    }
-
-    public function resume()
-    {
-        return view('users.resume');
-    }
-
-    public function favorite()
-    {
-        return view('users.favorite');
-    }
-
-    public function settings()
-    {
-        return view('users.settings');
+        //
     }
 
     /**
