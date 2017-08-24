@@ -14,38 +14,40 @@
             <h1 class="panel-title"> Favourites </h1>
           </div>
           <div class="panel-body">
-            <div class="text-center">
-              <h3> You haven't marked any ads as favorite yet. </h3>
-              <p> Click on the star symbol on any ad to save it as a favorite. </p>
-              <p> <i class="fa fa-star-o fa-5x text-primary"></i> </p>
-              <p> Start<a href="{{ route('ads.index') }}"> to browse </a>ads to find ads you would like to favorite.</p>
-            </div>
-
-            <a href="#">
-              <div class="panel panel-default item-sty">
-                <div class="panel-body">
-                  <div class="row media">
-                    <div class="col-md-3 col-sm-4">
-                      <div class="media-left">
-                        <img class="img-responsive" src="{{ asset('img/my.jpeg')}}" alt="Post image">
-                      </div>
-                    </div>
-                    <div class="col-md-7">
-                      <div class="media-body">
-                        <p class="media-heading"> Apple iPhone 5S 32 GB Intact Original </p>
-                        <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> 25 minutes ago, <wbr> Sylhet,<wbr> Mobile Phone </p>
-                        <p> <b> Tk 12000 </b> </p>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="media-right">
-                        <p class="label label-warning"> <i class="fa fa-star-o"></i> FAVORITE </p>
+            @forelse ($favorites as $favorite)
+                <a href="{{ route('post.show', $favorite->post->id) }}">
+                  <div class="panel panel-default item-sty">
+                    <div class="panel-body">
+                      <div class="row media">
+                        <div class="col-md-3 col-sm-4">
+                          <div class="media-left">
+                            <img class="img-responsive" src="{{ asset('img/my.jpeg')}}" alt="Post image">
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="media-body">
+                            <p class="media-heading"> {{ $favorite->post->title }} </p>
+                            <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> {{ $favorite->post->created_at->diffForHumans() }}, <wbr> {{ $favorite->post->place->name }},<wbr> {{ $favorite->post->sub_category->name }} </p>
+                            <p> <b> Tk {{ $favorite->post->price }} </b> </p>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="media-right">
+                            <p class="label label-warning"> <i class="fa fa-star-o"></i> FAVORITE </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </a>
+            @empty
+                <div class="text-center">
+                  <h3> You haven't marked any ads as favorite yet. </h3>
+                  <p> Click on the star symbol on any ad to save it as a favorite. </p>
+                  <p> <i class="fa fa-star-o fa-5x text-primary"></i> </p>
+                  <p> Start<a href="{{ route('ads.index') }}"> to browse </a>ads to find ads you would like to favorite.</p>
                 </div>
-              </div>
-            </a>
+            @endforelse
 
           </div>
         </div>

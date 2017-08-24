@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\Favorite;
 
 class PostController extends Controller
 {
@@ -11,6 +13,23 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
+
+    /**
+     * make post favorite or unfavorite
+     */
+     public function favorite($id)
+     {
+         $post = Post::find($id);
+         if(count($post->favorites()->where('user_id', Auth::id())->get())==0){
+             $fav = new Favorite();
+             $fav->user_id = Auth::id();
+             $fav->post_id = $post->id;
+             $fav->save();
+         } else {
+             $post->favorites()->where('user_id', Auth::id())->get()->first()->delete();
+         }
+         return back();
+     }
 
     /**
      * Display a listing of the resource.

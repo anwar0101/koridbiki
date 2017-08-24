@@ -67,7 +67,7 @@
                 <li class="list-group-item"> <p> <b> Features: </b> new </p> </li>
                 <li class="list-group-item"> <p> <b> Authenticity: </b> Original </p> </li>
 
-                <li class="list-group-item"> <a href="#"> <i class="fa fa-star-o"></i> Save ad as Fovourite </a> </li>
+                <li class="list-group-item"> <a href="{{ route('favorite.check', $post->id) }}">  @if($post->is_favorited)<i class="fa fa-star"></i> Unfavourite this ad @else <i class="fa fa-star-o"></i> Save ad as Fovourite @endif </a> </li>
                 <li class="list-group-item"> <a href="#"> <i class="fa fa-ban"></i> Report this ad </a> </li>
               </ul>
             </div>

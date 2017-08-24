@@ -25,6 +25,15 @@ Route::prefix('user')->group(function(){
   Route::get('/settings', 'UserController@settings')->name('settings');
 });
 
+Route::prefix('admin')->group(function(){
+  Route::resource('categories', 'CategoryController');
+  Route::resource('sub-categories', 'SubCategoryController');
+  Route::resource('divitions', 'DivitionController');
+  Route::resource('places', 'PlaceController');
+});
+
 Route::resource('ads', 'AdsController');
 
 Route::resource('post', 'PostController');
+
+Route::get('/make-favorite/{id}', 'PostController@favorite')->name('favorite.check');

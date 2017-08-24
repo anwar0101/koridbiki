@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -23,5 +24,15 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite');
+    }
+
+    public function getIsFavoritedAttribute()
+    {
+        return count($this->favorites()->where('user_id', Auth::id())->get()) != 0;
     }
 }

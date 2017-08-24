@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Post;
 
 class UserController extends Controller
@@ -35,7 +36,8 @@ class UserController extends Controller
 
     public function favorite()
     {
-        return view('users.favorite');
+        $favorites = Auth::user()->favorites;
+        return view('users.favorite', compact('favorites'));
     }
 
     public function settings()
