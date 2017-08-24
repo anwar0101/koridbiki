@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -18,7 +19,8 @@ class UserController extends Controller
      */
     public function dashboard()
     {
-        return view('users.dashboard');
+        $posts = Post::all();
+        return view('users.dashboard', compact('posts'));
     }
 
     public function membership()
