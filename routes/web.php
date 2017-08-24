@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function(){
   Route::resource('sub-categories', 'SubCategoryController');
   Route::resource('divitions', 'DivitionController');
   Route::resource('places', 'PlaceController');
+  Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 });
 
 Route::resource('ads', 'AdsController');
