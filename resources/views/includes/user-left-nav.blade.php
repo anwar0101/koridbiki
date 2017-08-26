@@ -8,9 +8,6 @@
       <a href="{{ route('membership') }}" class="list-group-item @if(Request::is('user/membership*')) active @endif">
          <i class="fa fa-id-badge fa-fw"> </i> My Membership <span class="badge"> <i class="fa fa-arrow-right fa-fw"> </i> </span>
       </a>
-      <a href="{{ route('resume') }}" class="list-group-item">
-         <i class="fa fa-id-card-o fa-fw"> </i> My Resume <span class="badge"> <i class="fa fa-arrow-right fa-fw"> </i> </span>
-      </a>
       <a href="{{ route('favorite-ads') }}" class="list-group-item @if(Request::is('user/favorite-ads*')) active @endif">
          <i class="fa fa-star-o fa-fw"> </i> Fevorites <span class="badge"> <i class="fa fa-arrow-right fa-fw"> </i> </span>
       </a>

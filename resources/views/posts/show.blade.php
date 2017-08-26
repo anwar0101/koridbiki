@@ -13,32 +13,53 @@
             <!-- Indicators -->
             <ol class="carousel-indicators">
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
+              @if ($post->photo2)
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+              @endif
+              @if ($post->photo3)
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+              @endif
+              @if ($post->photo4)
+                  <li data-target="#myCarousel" data-slide-to="3"></li>
+              @endif
             </ol>
             <!-- Wrapper for slides start -->
             <div class="carousel-inner">
 
               <div class="item active">
-                <img class="img-responsive" src="/img/download.jpg" alt="Los Angeles">
+                <img class="img-responsive" src="{{ asset(str_replace_last('public', 'storage', $post->photo1))}}" alt="photo 1">
                 <div class="carousel-caption">
                   <h3> Koridbiki.com </h3>
                 </div>
               </div>
 
-              <div class="item">
-                <img class="img-responsive" src="/img/my.jpeg" alt="Los Angeles">
-                <div class="carousel-caption">
-                  <h3> Koridbiki.com </h3>
-                </div>
-              </div>
+              @if ($post->photo2)
+                  <div class="item">
+                    <img class="img-responsive" src="{{ asset(str_replace_last('public', 'storage', $post->photo2))}}" alt="photo 2">
+                    <div class="carousel-caption">
+                      <h3> Koridbiki.com </h3>
+                    </div>
+                  </div>
+              @endif
 
-              <div class="item">
-                <img class="img-responsive" src="/img/images.jpg" alt="Los Angeles">
-                <div class="carousel-caption">
-                  <h3> Koridbiki.com </h3>
-                </div>
-              </div>
+              @if ($post->photo3)
+                  <div class="item">
+                    <img class="img-responsive" src="{{ asset(str_replace_last('public', 'storage', $post->photo3))}}" alt="photo 3">
+                    <div class="carousel-caption">
+                      <h3> Koridbiki.com </h3>
+                    </div>
+                  </div>
+              @endif
+
+              @if ($post->photo4)
+                  <div class="item">
+                    <img class="img-responsive" src="{{ asset(str_replace_last('public', 'storage', $post->photo4))}}" alt="photo 4">
+                    <div class="carousel-caption">
+                      <h3> Koridbiki.com </h3>
+                    </div>
+                  </div>
+              @endif
+
             </div> <!-- Wrapper for slides start -->
 
             <!-- Left and right controls -->
@@ -147,13 +168,13 @@
                     <div class="col-md-7 col-sm-8">
                       <div class="media-body">
                         <p class="media-heading"> Apple iPhone 5S 32 GB Intact Original </p>
-                        <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> 25 minutes ago, <wbr> Sylhet,<wbr> Mobile Phone </p>
-                        <p> <b> Tk 12000 </b> </p>
+                        <p class="text-muted"> <b class="label label-default"> member </b> &nbsp; <wbr> 25 minutes ago, <wbr> Sylhe,<wbr> {{ $post->sub_category->name }} </p>
+                        <p> <b> Tk {{ $post->price }} </b> </p>
                       </div>
                     </div>
                     <div class="col-md-2">
                       <div class="media-right">
-                        <p class="label label-success"> <i class="fa fa-shield"></i> TOP PAIND </p>
+                        <p class="label label-success"> <i class="fa fa-shield"></i> TOP PAID </p>
                       </div>
                     </div>
                   </div>

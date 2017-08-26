@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\Favorite;
+use Illuminate\Support\Facades\Storage;
+
 class PostController extends Controller
 {
     public function __construct()
@@ -43,9 +45,10 @@ class PostController extends Controller
     public function create()
     {
         $category = \App\Category::all();
-        $subcat = \App\SubCategory::all();
-        $places = \App\Place::all();
-        return view('posts.create', compact('category','subcat','places'));
+        $subcat = $category->first()->sub_categories;
+        $divitions = \App\Divition::all();
+        $places = $divitions->first()->places;
+        return view('posts.create', compact('category','subcat','places','divitions'));
     }
     /**
      * Store a newly created resource in storage.
@@ -58,25 +61,40 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            // 'images' => 'required',
+            'sub_category_id' => 'required',
+            'place_id' => 'required',
+            'photo1' => 'required',
             'price' => 'required',
-            'negatiable' => 'required',
             'condition' => 'required',
             'contact' => 'required',
         ]);
-        $post = new Post();
-        $post->title = $request->title;
-        $post->description = $request->description;
-        // $post->images => $request->
-        $post->price = $request->price;
-        $post->negatiable = $request->negatiable;
-        $post->condition = $request->condition;
-        $post->contact = $request->contact;
-        $post->sub_category_id = $request->sub_category_id;
-        $post->place_id = $request->place_id;
-        $post->user_id = $request->user()->id;
-        $post->save();
-        return redirect()->route('post.index');
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+
+        if ($request->hasFile('photo1')) {
+            $imgStore = Storage::putFile('public/post', $request->file('photo1'));
+            $data['photo1'] = $imgStore;
+        }
+        if ($request->hasFile('photo2')) {
+            $imgStore = Storage::putFile('public/post', $request->file('photo2'));
+            $data['photo2'] = $imgStore;
+        }
+        if ($request->hasFile('photo3')) {
+            $imgStore = Storage::putFile('public/post', $request->file('photo3'));
+            $data['photo3'] = $imgStore;
+        }
+        if ($request->hasFile('photo4')) {
+            $imgStore = Storage::putFile('public/post', $request->file('photo4'));
+            $data['photo4'] = $imgStore;
+        }
+
+        if($post = Post::create($data)){
+            flash("Your ad Posted and Waiting for reviewed")->success();
+        } else {
+            flash("Error occured while posting. Try again")->error();
+        }
+
+        return redirect()->route('dashboard');
     }
     /**
      * Display the specified resource.

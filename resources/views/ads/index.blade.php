@@ -28,7 +28,7 @@
 
               <select class="form-control" name="">
                 <optgroup label="Select Category">
-                  <option value="Dhaka Division"> Dhaka Division </option>
+                  <option value="Dhaka Division"> Electronics </option>
                   <option value="Dhaka Division"> Chittagong Division </option>
                   <option value="Dhaka Division"> Sylhet Division </option>
                 </optgroup>
@@ -161,7 +161,7 @@
                     <div class="row media">
                       <div class="col-md-3 col-sm-4">
                         <div class="media-left">
-                          <img class="img-responsive" src="{{ asset('img/my.jpeg')}}" alt="Post image">
+                          <img class="img-responsive" src="{{ asset(str_replace_last('public', 'storage', $post->photo1))}}" alt="Post image">
                         </div>
                       </div>
                       <div class="col-md-7 col-sm-8">
@@ -173,7 +173,7 @@
                       </div>
                       <div class="col-md-2">
                         <div class="media-right">
-                          <p class="label label-success"> <i class="fa fa-shield"></i> TOP PAIND </p>
+                          <p class="label label-success"> <i class="fa fa-shield"></i> TOP PAID </p>
                         </div>
                       </div>
                     </div>
