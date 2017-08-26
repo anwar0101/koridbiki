@@ -1,19 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\Favorite;
-
 class PostController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-
     /**
      * make post favorite or unfavorite
      */
@@ -30,7 +26,6 @@ class PostController extends Controller
          }
          return back();
      }
-
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +35,6 @@ class PostController extends Controller
     {
         return view('posts.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -53,7 +47,6 @@ class PostController extends Controller
         $places = \App\Place::all();
         return view('posts.create', compact('category','subcat','places'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -71,7 +64,6 @@ class PostController extends Controller
             'condition' => 'required',
             'contact' => 'required',
         ]);
-
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
@@ -83,13 +75,9 @@ class PostController extends Controller
         $post->sub_category_id = $request->sub_category_id;
         $post->place_id = $request->place_id;
         $post->user_id = $request->user()->id;
-
         $post->save();
-
-        return redirect()->route('dashboard');
-
+        return redirect()->route('post.index');
     }
-
     /**
      * Display the specified resource.
      *
@@ -101,7 +89,6 @@ class PostController extends Controller
         $post = Post::find($id);
         return view('posts.show', compact('post'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -112,7 +99,6 @@ class PostController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -124,7 +110,6 @@ class PostController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
