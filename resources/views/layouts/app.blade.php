@@ -37,5 +37,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/slide.js') }}"></script>
+    
+    @stack('scripts')
 </body>
 </html>

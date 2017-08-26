@@ -27,12 +27,21 @@ class CreatePostsTable extends Migration
 
             $table->string('title');
             $table->text('description');
-            $table->string('images')->nullable();
+
+            $table->string('photo1');
+            $table->string('photo2')->nullable();
+            $table->string('photo3')->nullable();
+            $table->string('photo4')->nullable();
+
             $table->float('price',10,2);
             $table->boolean('negatiable')->default(0);
+
             $table->string('condition');
+
             $table->string('contact')->nullable();
+
             $table->boolean('status')->default(0);
+
             $table->timestamps();
         });
     }

@@ -8,7 +8,19 @@ use Illuminate\Support\Facades\Auth;
 class Post extends Model
 {
     protected $fillable = [
-
+        'user_id',
+        'sub_category_id',
+        'place_id',
+        'title',
+        'description',
+        'photo1',
+        'photo2',
+        'photo3',
+        'photo4',
+        'price',
+        'negatiable',
+        'condition',
+        'contact',
     ];
 
     public function place()
