@@ -7,13 +7,13 @@
         <div class="col-md-3">
           <h3> Search by Division </h3>
           <div class="list-group">
-            <a href="#" class="list-group-item"> Dhaka Division </a>
-            <a href="#" class="list-group-item"> Chittagong Division </a>
-            <a href="#" class="list-group-item"> Sylhet Division </a>
-            <a href="#" class="list-group-item"> Khulna Division </a>
-            <a href="#" class="list-group-item"> Rajshahi Division </a>
-            <a href="#" class="list-group-item"> Rangpur Division </a>
-            <a href="#" class="list-group-item"> Barisal Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Dhaka Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Chittagong Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Sylhet Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Khulna Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Rajshahi Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Rangpur Division </a>
+            <a href="{{ route('ads.index') }}" class="list-group-item"> Barisal Division </a>
           </div>
         </div>
         <div class="col-md-9">
@@ -35,25 +35,25 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-md-3">
-                      <a href="#">
+                      <a href="{{ route('ads.index') }}">
                         <p class="text-center"> <i class="fa fa-television fa-2x" aria-hidden="true"></i></p>
                         <h4 class="text-center text-primary"> Electronics </h4>
                       </a>
                     </div>
                     <div class="col-md-3">
-                      <a href="#">
+                      <a href="{{ route('ads.index') }}">
                         <p class="text-center"> <i class="fa fa-home fa-2x" aria-hidden="true"></i></p>
                         <h4 class="text-center text-primary"> Property </h4>
                       </a>
                     </div>
                     <div class="col-md-3">
-                      <a href="#">
+                      <a href="{{ route('ads.index') }}">
                         <p class="text-center"> <i class="fa fa-car fa-2x" aria-hidden="true"></i></p>
                         <h4 class="text-center text-primary"> Cars & Vehicles </h4>
                       </a>
                     </div>
                     <div class="col-md-3">
-                      <a href="#">
+                      <a href="{{ route('ads.index') }}">
                         <p class="text-center"> <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></p>
                         <h4 class="text-center text-primary"> Jobs in Bangladesh </h4>
                       </a>
@@ -73,7 +73,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-television fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Electronics </h4>
             </a>
@@ -86,7 +86,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-truck fa-2x" aria-hidden="true"></i> </p>
               <h4 class="text-center text-primary"> Home & Garden </h4>
             </a>
@@ -99,7 +99,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-car fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Cars & Vehicles </h4>
             </a>
@@ -112,7 +112,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-home fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Property </h4>
             </a>
@@ -125,7 +125,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-paw fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Pets & Animals </h4>
             </a>
@@ -138,7 +138,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-gift fa-2x" aria-hidden="true"></i> </p>
               <h4 class="text-center text-primary"> Clothing & Beauty </h4>
             </a>
@@ -151,7 +151,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Hobby, Sport & Kids </h4>
             </a>
@@ -164,7 +164,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-tree fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Food & Agriculture </h4>
             </a>
@@ -177,7 +177,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-industry fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Business & Industry </h4>
             </a>
@@ -190,7 +190,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i> </p>
               <h4 class="text-center text-primary"> Education </h4>
             </a>
@@ -203,7 +203,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Jobs in Bangladesh </h4>
             </a>
@@ -216,7 +216,7 @@
 
         <div class="col-md-3">
           <div class="item-sty">
-            <a href="#">
+            <a href="{{ route('ads.index') }}">
               <p class="text-center"> <i class="fa fa-globe fa-2x" aria-hidden="true"></i></p>
               <h4 class="text-center text-primary"> Overseas Jobs </h4>
             </a>

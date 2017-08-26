@@ -25,7 +25,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li> <a> <div id="google_translate_element"> </div> </a> </li>
+                <li> <a href="{{ route('dashboard')}}"> <i class="fa fa-user-circle-o fa-fw"></i> My Account </a> </li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ route('login') }}"> <i class="fa fa-sign-in fa-fw"> </i> Login </a> </li>
