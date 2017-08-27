@@ -15,7 +15,7 @@
           </div>
           <div class="panel-body">
             <h3> Change details </h3> <hr>
-            <p> <span> <i class="fa fa-envelope-o fa-fw"></i> Email: </span>  <b> nesarsiu@gmail.com</b> </p>
+            <p> <span> <i class="fa fa-envelope-o fa-fw"></i> Email: </span>  <b> {{ Auth::user()->email }}</b> </p>
             <form class="" action="index.html" method="post">
 
               <div class="row">
@@ -24,7 +24,7 @@
                     <label for="name"> Name </label>
                     <div class="input-group">
                       <span class="input-group-addon"> <i class="fa fa-user-o"></i></span>
-                      <input class="form-control" type="text" name="name" value="Nesar Ahmed">
+                      <input class="form-control" type="text" name="name" value="{{ Auth::user()->name }}">
                     </div>
                   </div>
                 </div>

@@ -28,7 +28,7 @@
 
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="divition">Divition</label>
-                    <select class="form-control" name="divition_id">
+                    <select class="form-control" name="divition_id" id="divition_id">
                         @foreach ($divitions as $divition)
                             <option value="{{ $divition->id }}">{{ $divition->name }}</option>
                         @endforeach
@@ -37,7 +37,7 @@
 
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="place_id">Palce</label>
-                    <select class="form-control" name="place_id">
+                    <select class="form-control" name="place_id" id="place_id">
                         @foreach ($places as $place)
                             <option value="{{ $place->id }}">{{ $place->name }}</option>
                         @endforeach
@@ -113,10 +113,55 @@
 
 @push('scripts')
     <script type="text/javascript">
-        var subcats = [];
-        var places = [];
-        @foreach ($category as $cat)
-            subcat[{{ $cat->id }}] = {{ $cat->sub_categories->toJson() }};
-        @endforeach
+        var cats = {
+            @foreach ($category as $cat)
+                @if (count($cat->sub_categories)>0)
+                    "{{ $cat->id }}":[
+                            @foreach ($cat->sub_categories as $sub)
+                                { "name":"{!! $sub->name !!}","id":"{{ $sub->id }}" },
+                            @endforeach
+                    ],
+                @else
+                    "{{ $cat->id }}":[],
+                @endif
+
+            @endforeach
+
+        };
+
+        var places = {
+            @foreach ($divitions as $divition)
+                @if (count($divition->places)>0)
+                    "{{ $divition->id }}":[
+                            @foreach ($divition->places as $place)
+                                { "name":"{!! $place->name !!}","id":"{{ $place->id }}" },
+                            @endforeach
+                    ],
+                @else
+                    "{{ $divition->id }}":[],
+                @endif
+
+            @endforeach
+
+        };
+
+
+        $(function() {
+            $(document).on('change','#category_id',function(){
+                var subcats = cats[this.value];
+                var subcatsOpt = $.map(subcats, function ( item, i) {
+                    return $('<option>', { text: item.name, value: item.id });
+                });
+                $("#sub_category_id").empty().append(subcatsOpt);
+            });
+
+            $(document).on('change','#divition_id',function(){
+                var subplaces = places[this.value];
+                var subplacesOpt = $.map(subplaces, function ( item, i) {
+                    return $('<option>', { text: item.name, value: item.id });
+                });
+                $("#place_id").empty().append(subplacesOpt);
+            });
+        });
     </script>
 @endpush
